@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H4X0R</title>
+    <style>
+        body {
+            font-family: Arial, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: black;
+            background-size: cover; /* Cover the entire viewport */
+            backdrop-filter: blur(50px); /* Blurring effect */
+        }
+        .header {
+            position: relative;
+            color: rgb(255, 247, 200);
+            text-shadow: 0 0 10px rgb(255, 247, 200);
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .content {
+            display: flex;
+            align-items: flex-start;
+        }
+        .image-container {
+            position: relative;
+            width: 1500px; /* Increased size */
+            height: 600px; /* Increased size */
+            border: 5px solid rgb(255, 247, 200);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgb(255, 247, 200);
+            margin-right: 20px;
+        }
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+        }
+        .description {
+            max-width: 1000px;
+        }
+        .hi-text {
+            color: rgb(255, 247, 200);
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 0 0 5px rgb(255, 247, 200);
+            white-space: nowrap; /* Prevent text wrapping */
+            overflow: hidden; /* Hide overflowing text */
+            border-right: 4px solid rgb(255, 247, 200); /* Cursor effect */
+        }
+        h2 {
+            color: rgb(255, 247, 200);
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            text-shadow: 0 0 5px rgb(255, 247, 200);
+        }
+        p {
+            color: rgb(255, 247, 200);
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            text-shadow: 0 0 5px rgb(255, 247, 200); 
+        }
+        .button-container {
+            margin-top: 20px;
+        }
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: transparent; /* Transparent background */
+            border: none;
+            border-radius: 50%; /* Circular button */
+            padding: 10px; /* Adjust padding for circle */
+            margin-right: 15px; /* Add space between buttons */
+            margin-right: 15px; /* Add space between buttons */
+            margin-bottom: 100px; /* Add space between buttons */
+            transition: box-shadow 0.3s ease;
+            cursor: pointer;
+            width: 30px; /* Set width for circular button */
+            height: 30px; /* Set height for circular button */
+            box-shadow: 0 0 2px rgb(255, 247, 200), 0 0 2px rgb(255, 247, 200);
+        }
+        .button:hover {
+            box-shadow: 0 0 15px rgb(255, 247, 200), 0 0 30px rgb(255, 247, 200)
+        }
+        .icon { 
+            width: 22px; /* Smaller icon size */
+            height: 22px; /* Smaller icon size */
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">Aka Antianalysis</div>
+
+<div class="content">
+    <div class="image-container">
+        <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExdXhsb3RyYWNtcHc0MzVianlkM3VxYzR5aXk4c2t6anozOTRxaTd0ciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Xrqf7FsNY72Edwx3nC/giphy.gif" alt="Rino's Picture">
+    </div>
+    <div class="description">
+        <div class="hi-text" id="typewriter"></div>
+        <h2>About Me</h2>
+        <p>I'm a Programmer, Malware Developer, Bug Bounty Hunter, Penetration Tester, and a Malware Analyst.</p>
+        <p>You Can Find Me Here!</p>
+        <div class="button-container">
+            <a href="https://discord.com/users/214606775779852289" class="button">
+                <img src="https://i.postimg.cc/63wL8R7H/discord.pngg" alt="Discord" class="icon"> 
+            </a>
+            <a href="https://instagram.com/0xrino" class="button">
+                <img src="https://i.postimg.cc/zX5ZqPXW/instagram.png" alt="Instagram" class="icon"> 
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+    const phrases = [
+        "Hi, I'm Rino",
+        "Hi, I'm ./Rino",
+        "Hi, I'm HexRino",
+        "Hi, I'm 0xRino"
+    ];
+    let index = 0;
+    let charIndex = 0;
+    const typingSpeed = 100; // Typing speed in milliseconds
+    const deletingSpeed = 100; // Deleting speed in milliseconds
+    const pauseBetween = 2000; // Pause between phrases
+
+    function type() {
+        const currentPhrase = phrases[index];
+        const hiTextElement = document.getElementById('typewriter');
+        
+        if (charIndex < currentPhrase.length) {
+            hiTextElement.textContent += currentPhrase.charAt(charIndex);
+            charIndex++;
+            setTimeout(type, typingSpeed);
+        } else {
+            setTimeout(deleteText, pauseBetween);
+        }
+    }
+
+    function deleteText() {
+        const hiTextElement = document.getElementById('typewriter');
+        
+        if (charIndex > 0) {
+            hiTextElement.textContent = hiTextElement.textContent.slice(0, -1);
+            charIndex--;
+            setTimeout(deleteText, deletingSpeed);
+        } else {
+            index = (index + 1) % phrases.length; // Move to the next phrase
+            setTimeout(type, typingSpeed);
+        }
+    }
+
+    type(); // Start typing animation
+</script>
+
+</body>
+</html>
